@@ -1,5 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import './Home.css';
+import inva from '../assets/inva.png';
 
 const Home = () => (
   <main>
