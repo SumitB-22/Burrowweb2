@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import inva from '../images/inva.png';
 
 const Home = () => (
   <main>
