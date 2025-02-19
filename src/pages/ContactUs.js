@@ -1,8 +1,8 @@
 import React from 'react';
 import './ContactUs.css';   
-import man from '../assets/man.png';
-import manager from '../assets/manager.png';
-import boy from '../assets/boy.png';
+import aryan from '../assets/aryan.jpeg';
+import tejashvi from '../assets/tejashvi.jpeg';
+import prince from '../assets/prince.jpeg';
 
 const ContactUs = () => (
   <main>
@@ -10,7 +10,7 @@ const ContactUs = () => (
         <p>If you have any questions or need assistance, feel free to reach out to our team below.</p>
 
         <section className="contact-section">
-            <img src={man} alt="Person 1" />
+            <img src={aryan} alt="Person 1" />
             <div className="details">
                 <h3>Aryan Goyal</h3>
                 <p>Email: aryangoyalbusiness@gmail.com</p>
@@ -19,7 +19,7 @@ const ContactUs = () => (
         </section>
 
         <section className="contact-section">
-            <img src={manager} alt="Person 2" />
+            <img src={tejashvi} alt="Person 2" />
             <div className="details">
                 <h3>Tejashvi Singh</h3>
                 <p>Email: Tejayashsingh@gmail.com</p>
@@ -28,7 +28,7 @@ const ContactUs = () => (
         </section>
 
         <section className="contact-section">
-            <img src={boy} alt="Person 3" />
+            <img src={prince} alt="Person 3" />
             <div className="details">
                 <h3>Prince Pratap</h3>
                 <p>Email: princepratapism@gmail.com</p>
