@@ -1,0 +1,90 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  padding: 20px;
+}
+
+.hero-section {
+  margin-bottom: 40px;
+}
+
+.middleware-section, .upcoming-section, .trusted-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #222831;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.middleware-section .text, .upcoming-section .text {
+  text-align: center;
+  padding: 10px;
+}
+
+.middleware-section img, .upcoming-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.trusted-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.middleware-section h2,  .trusted-section h2 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.upcoming-section h2 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.middleware-section p, .upcoming-section p, .trusted-section p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+.company {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trusted-section .company img {
+  max-width: 100px;
+  height: auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .middleware-section, .upcoming-section, .trusted-section {
+    text-align: center;
+  }
+
+  .middleware-section img, .upcoming-section img {
+    margin: 20px 0 0 0;
+  }
+
+  .trusted-section h2 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .trusted-section h2 {
+    font-size: 1.2em;
+  }
+}
+

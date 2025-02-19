@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #222831;
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .contact-section img {
+    width: 120px; /*logo size*/
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-section .details {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .contact-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+  
+  .contact-section p {
+    font-size: 1em;
+    line-height: 1.6;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .contact-section {
+      text-align: center;
+    }
+  
+    .contact-section img {
+      margin-bottom: 20px;
+    }
+  }
