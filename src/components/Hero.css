@@ -1,17 +1,18 @@
 .hero {
   text-align: center;
-  padding: 5em 2em;
+  padding: 50px 20px;
   background-color: #222831;
-  color: #EEEEEE;
+  color: #fff;
 }
 
 .hero h1 {
   font-size: 3em;
-  margin-bottom: 0.5em;
+  margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 1.2em;
+  font-size: 1.5em;
+  margin-bottom: 30px;
 }
 
 .hero a {
@@ -29,6 +30,22 @@
   color: #EEEEEE;
   background-color: #393E46;
   transform: scale(1.05);
+}
+
+.learn-more-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #00adb5;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.learn-more-button:hover {
+  background-color: #007b7f;
 }
 
 @media (max-width: 768px) {

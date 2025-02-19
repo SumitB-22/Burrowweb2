@@ -2,6 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
 main {
@@ -12,7 +13,54 @@ main {
   margin-bottom: 40px;
 }
 
-.middleware-section, .upcoming-section, .trusted-section {
+/* Image Section */
+.image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  width: 100%;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-grid .image-center {
+  grid-column: span 2;
+  justify-self: center;
+  width: 50%;
+}
+
+.image-grid img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-grid img:nth-child(1):hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.image-grid img:nth-child(2):hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.image-grid img:nth-child(3):hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+/* Middleware Section */
+.middleware-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,40 +68,86 @@ main {
   margin: 20px 0;
   padding: 20px;
   border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.middleware-section .text, .upcoming-section .text {
+.middleware-section:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.middleware-section .text {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   text-align: center;
   padding: 10px;
 }
 
-.middleware-section img, .upcoming-section img {
+.middleware-section .text-part {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px;
+}
+
+.middleware-section img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
   margin-top: 20px;
 }
 
-.trusted-section {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.middleware-section h2,  .trusted-section h2 {
-  font-size: 3em;
+.middleware-section h2 {
+  font-size: 2.5em;
   margin-bottom: 10px;
   color: #fff;
-}
-.upcoming-section h2 {
-  font-size: 3em;
-  margin-bottom: 10px;
-  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
-.middleware-section p, .upcoming-section p, .trusted-section p {
+.middleware-section h3 {
+  font-size: 1.5em;
+  color: #ccc;
+  margin: 10px 0;
+}
+
+.middleware-section p {
   font-size: 1.1em;
   line-height: 1.8;
   color: #ccc;
+  margin: 10px 0;
+}
+
+/* Trusted Section */
+.trusted-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #222831;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trusted-section:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.trusted-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.trusted-section p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #ccc;
+  margin: 10px 0;
 }
 
 .company {
@@ -68,12 +162,35 @@ main {
 }
 
 /* Responsive styles */
+@media (max-width: 1024px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-grid .image-center {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
-  .middleware-section, .upcoming-section, .trusted-section {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-grid img {
+    width: 100%;
+  }
+
+  .image-grid .image-center {
+    grid-column: span 1;
+    width: 100%;
+  }
+
+  .middleware-section, .trusted-section {
     text-align: center;
   }
 
-  .middleware-section img, .upcoming-section img {
+  .middleware-section img {
     margin: 20px 0 0 0;
   }
 
@@ -83,6 +200,19 @@ main {
 }
 
 @media (max-width: 480px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-grid img {
+    width: 100%;
+  }
+
+  .image-grid .image-center {
+    grid-column: span 1;
+    width: 100%;
+  }
+
   .trusted-section h2 {
     font-size: 1.2em;
   }
