@@ -38,7 +38,7 @@ const About = () => (
       title="Our Values"
       content={
         <>
-          <p>At Burrow Space, our core values form the foundation of every interaction:</p>
+          <p>At Burrow Space, our core values form the foundation of every interaction</p>
           <ul className="value-list">
             <li>Innovation Through Collaboration</li>
             <li>Transparent Communication</li>
@@ -74,7 +74,7 @@ const About = () => (
       title="Our Commitment"
       content={
         <>
-          <p>We pledge to:</p>
+          <p>We pledge to</p>
           <ul className="commitment-list">
             <li>Deliver excellence through continuous innovation</li>
             <li>Maintain ethical business practices</li>
