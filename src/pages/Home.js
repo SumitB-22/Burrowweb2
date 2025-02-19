@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import './Home.css';
 import middleware1 from '../assets/middleware1.jpeg';
 import ajit from '../assets/ajit.jpeg';
-
+import inva from '../assets/inva.png';
 import home1 from '../assets/home1.png';
 import home2 from '../assets/home2.png';
 import home3 from '../assets/home3.png';
@@ -69,15 +69,20 @@ const Home = () => {
 
       <section className="trusted-section">
         <h2 className="animated-text">Trusted and Mentored By</h2>
-        <div className="company">
-          <img src={ajit} alt="Ajit Gokhale" />
-          <div className="profile-info">
-            <p>Ajit Gokhale</p>
-            <p>Sr Vice President at Invasystems Inc.</p>
-            <a href="https://www.linkedin.com/in/ajitgokhale" target="_blank" rel="noopener noreferrer" className="linkedin-button">LinkedIn Profile</a>
-          </div>
-        </div>
-      </section>
+          <div className="company">
+            <img src={ajit} alt="Ajit Gokhale" className="profile-image" />
+              <div className="profile-info">
+                <   p className="name">Ajit Gokhale</p>
+                <p className="position">Sr Vice President at Invasystems Inc.</p>
+                  <div className="logo-button-container">
+                    <img src={inva} alt="Invasystems" className="company-logo" />
+                    <a href="https://www.linkedin.com/in/ajitgokhale" target="_blank" rel="noopener noreferrer" className="linkedin-button">
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
+              </div>
+        </section>
       <Footer />
     </main>
   );
