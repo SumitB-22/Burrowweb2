@@ -19,44 +19,58 @@ main {
   flex-direction: column;
   align-items: center;
   margin: 20px 0;
+  position: relative;
 }
 
 .image-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
   gap: 20px;
   width: 100%;
 }
 
-.image-grid img {
+.scroll-image {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  scroll-snap-align: start;
+  flex-shrink: 0;
 }
 
-.image-grid .image-center {
-  grid-column: span 2;
-  justify-self: center;
+.next-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #0077b5;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+  background-color: #005582;
+}
+
+.clickable-area {
+  position: absolute;
+  top: 0;
+  bottom: 0;
   width: 50%;
+  cursor: pointer;
 }
 
-.image-grid img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.clickable-area.left {
+  left: 0;
 }
 
-.image-grid img:nth-child(1):hover {
-  transform: scale(1.1) rotate(5deg);
-}
-
-.image-grid img:nth-child(2):hover {
-  transform: scale(1.1) rotate(-5deg);
-}
-
-.image-grid img:nth-child(3):hover {
-  transform: scale(1.1) rotate(10deg);
+.clickable-area.right {
+  right: 0;
 }
 
 /* Middleware Section */
@@ -152,13 +166,51 @@ main {
 
 .company {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
 .trusted-section .company img {
   max-width: 100px;
   height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.linkedin-button {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #0077b5;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.linkedin-button:hover {
+  background-color: #005582;
+}
+
+/* Text Animation */
+.animated-text {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive styles */
@@ -167,7 +219,7 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .image-grid .image-center {
+  .image-grid .full-screen-image {
     width: 100%;
   }
 }
@@ -181,7 +233,7 @@ main {
     width: 100%;
   }
 
-  .image-grid .image-center {
+  .image-grid .full-screen-image {
     grid-column: span 1;
     width: 100%;
   }
@@ -208,7 +260,7 @@ main {
     width: 100%;
   }
 
-  .image-grid .image-center {
+  .image-grid .full-screen-image {
     grid-column: span 1;
     width: 100%;
   }

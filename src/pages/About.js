@@ -4,10 +4,11 @@ import image1 from '../assets/image1.png';
 import image2 from '../assets/image2.jpeg';
 import tech from '../assets/tech.jpg';
 import commitment from '../assets/commitment.jpg';
+import Footer from '../components/Footer';
 
 const About = () => (
   <main>
-    <section className="hero-section left">
+    <section className="about-us-section">
       <div className="text">
         <h2>About Us</h2>
         <p>
@@ -24,7 +25,7 @@ const About = () => (
       <img src={image1} alt="Our Team" />
     </section>
 
-    <section className="hero-section right">
+    <section className="our-values-section">
       <img src={image2} alt="Our values" />
       <div className="text">
         <h2>Our Values</h2>
@@ -42,7 +43,7 @@ const About = () => (
       </div>
     </section>
 
-    <section className="hero-section left">
+    <section className="our-technology-section">
       <div className="text">
         <h2>Our Technology</h2>
         <p>
@@ -61,7 +62,7 @@ const About = () => (
       <img src={tech} alt="Our technology" />
     </section>
 
-    <section className="hero-section right">
+    <section className="our-commitment-section">
       <img src={commitment} alt="Our commitment" />
       <div className="text">
         <h2>Our Commitment</h2>
@@ -78,6 +79,7 @@ const About = () => (
         </p>
       </div>
     </section>
+    <Footer />
   </main>
 );
 
