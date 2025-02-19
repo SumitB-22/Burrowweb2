@@ -3,7 +3,7 @@ import './ContactUs.css';
 import aryan from '../assets/aryan.jpeg';
 import tejashvi from '../assets/tejashvi.jpeg';
 import prince from '../assets/prince.jpeg';
-
+import Footer2 from '../components/Footer2';
 const ContactUs = () => (
   <main>
         <h1>Contact Us</h1>
@@ -35,6 +35,7 @@ const ContactUs = () => (
                 <p>Phone: +91 7668629313</p>
             </div>
         </section>
+        <Footer2 /> 
     </main>
 );
 
