@@ -15,19 +15,22 @@ main {
 
 /* Image Section */
 .image-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px 0;
   position: relative;
+  margin: 4rem 0;
+  overflow: hidden;
+  border-radius: 1rem;
 }
 
 .image-grid {
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  gap: 20px;
-  width: 100%;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.image-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .scroll-image {
@@ -59,49 +62,84 @@ main {
 
 .clickable-area {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
   cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.clickable-area::after {
+  content: '';
+  border: solid #222831;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 6px;
+  transform: rotate(135deg);
+}
+
+.clickable-area.right::after {
+  transform: rotate(-45deg);
+  margin-right: -4px;
 }
 
 .clickable-area.left {
-  left: 0;
+  left: 1.5rem;
 }
 
 .clickable-area.right {
-  right: 0;
+  right: 1.5rem;
+}
+
+.clickable-area:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.1);
 }
 
 /* Middleware Section */
 .middleware-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #222831;
-  margin: 20px 0;
-  padding: 20px;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(34, 40, 49, 0.95); /* Same base color as trusted section */
+  backdrop-filter: blur(10px);
+  margin: 80px 0;
+  padding: 60px 20px;
+  border-radius: 15px;
+  position: relative;
+  z-index: 1;
 }
 
-.middleware-section:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.middleware-section::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(135deg, #222831 0%, #393e46 100%);
+  z-index: -1;
+  border-radius: 25px;
 }
 
 .middleware-section .text {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  text-align: center;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 40px auto 0;
 }
 
 .middleware-section .text-part {
-  flex: 1;
-  margin: 10px;
-  min-width: 250px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .middleware-section img {
@@ -134,14 +172,35 @@ main {
 
 /* Trusted Section */
 .trusted-section {
+  background: linear-gradient(135deg, #222831 0%, #393e46 100%);
+  margin: 80px 0;
+  padding: 60px 20px;
+  border-radius: 15px;
+}
+
+/* Navigation Arrows */
+.clickable-area {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  background: #222831;
-  margin: 20px 0;
-  padding: 20px;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.clickable-area.left {
+  left: 30px;
+}
+
+.clickable-area.right {
+  right: 30px;
 }
 
 .trusted-section:hover {
@@ -149,52 +208,70 @@ main {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.trusted-section h2 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+.trusted-section {
+  background: linear-gradient(135deg, #222831 0%, #2b2d30 100%);
+  padding: 40px 20px;
 }
 
-.trusted-section p {
-  font-size: 1.1em;
-  line-height: 1.8;
-  color: #ccc;
-  margin: 10px 0;
-}
-
-.company {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.trusted-section .company img {
-  max-width: 100px;
-  height: auto;
+.profile-image {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  border: 4px solid white;
+  margin-bottom: 20px;
 }
 
 .profile-info {
   text-align: center;
+  color: white;
+}
+
+.name {
+  font-size: 1.8em;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.position {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.logo-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.company-logo {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.3s ease;
+}
+
+.company-logo:hover {
+  opacity: 0.8;
 }
 
 .linkedin-button {
-  display: inline-block;
-  padding: 8px 16px;
-  font-size: 1em;
-  color: #fff;
-  background-color: #0077b5;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+  background: #0077b5;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .linkedin-button:hover {
-  background-color: #005582;
+  background: #005f8c;
+  transform: translateY(-2px);
 }
 
 /* Text Animation */
@@ -267,6 +344,54 @@ main {
 
   .trusted-section h2 {
     font-size: 1.2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-grid {
+    height: 50vh;
+  }
+  
+  .middleware-section,
+  .trusted-section {
+    margin: 50px 0;
+    padding: 40px 15px;
+  }
+  
+  .middleware-section .text {
+    gap: 25px;
+  }
+  
+  .clickable-area {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .clickable-area {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .clickable-area::after {
+    padding: 4px;
+    border-width: 0 2px 2px 0;
+  }
+  
+  .clickable-area.left {
+    left: 0.5rem;
+  }
+  
+  .clickable-area.right {
+    right: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .clickable-area {
+    width: 2rem;
+    height: 2rem;
   }
 }
 
