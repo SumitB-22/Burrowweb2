@@ -6,6 +6,7 @@ import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import './App.css';
 import logo from './assets/Logo.jpg'; // Ensure this path is correct
+import Career from './pages/Career';
 
 const App = () => {
   useEffect(() => {
@@ -33,6 +34,7 @@ const App = () => {
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/career" element={<Career />} />
         </Routes>
       </div>
     </Router>
