@@ -6,8 +6,10 @@ import logo from '../assets/Logo.jpg'; // Make sure to add your logo image in th
 const Header = () => (
   <header>
     <div className="logo">
-      <img src={logo} alt="Burrow Space Logo" />
-      Burrow Space
+      <Link to="/" className="logo-link">
+        <img src={logo} alt="Burrow Space Logo" className="logo-image" />
+        <span className="company-name">Burrow Space</span>
+      </Link>
     </div>
     <nav>
       <ul>
