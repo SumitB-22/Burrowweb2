@@ -17,8 +17,8 @@ main {
 .image-section {
   position: relative;
   margin: 4rem 0;
-  overflow: hidden;
   border-radius: 1rem;
+  overflow: hidden;
 }
 
 .image-grid {
@@ -27,6 +27,7 @@ main {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+
 }
 
 .image-grid::-webkit-scrollbar {
@@ -35,72 +36,43 @@ main {
 
 .scroll-image {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
   scroll-snap-align: start;
   flex-shrink: 0;
 }
 
-.next-button {
+/* Dots Navigation */
+.dots-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
   position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 10px 20px;
-  font-size: 1em;
-  color: #fff;
-  background-color: #0077b5;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
-.next-button:hover {
-  background-color: #005582;
-}
-
-.clickable-area {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3.5rem;
-  height: 3.5rem;
-  background: rgba(255, 255, 255, 0.9);
+.dot {
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0;
 }
 
-.clickable-area::after {
-  content: '';
-  border: solid #222831;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 6px;
-  transform: rotate(135deg);
+.dot.active {
+  background-color: #0077b5;
+  transform: scale(1.4);
 }
 
-.clickable-area.right::after {
-  transform: rotate(-45deg);
-  margin-right: -4px;
-}
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 
-.clickable-area.left {
-  left: 1.5rem;
-}
-
-.clickable-area.right {
-  right: 1.5rem;
-}
-
-.clickable-area:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: translateY(-50%) scale(1.1);
 }
 
 /* Middleware Section */

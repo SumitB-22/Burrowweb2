@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import './Home.css';
@@ -11,24 +11,29 @@ import home3 from '../assets/home3.png';
 
 const Home = () => {
   const imageContainerRef = useRef(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const handleNextClick = () => {
+  const handleDotClick = (index) => {
     if (imageContainerRef.current) {
-      imageContainerRef.current.scrollBy({
-        left: imageContainerRef.current.clientWidth,
+      imageContainerRef.current.scrollTo({
+        left: index * imageContainerRef.current.clientWidth,
         behavior: 'smooth',
       });
     }
   };
 
-  const handlePrevClick = () => {
-    if (imageContainerRef.current) {
-      imageContainerRef.current.scrollBy({
-        left: -imageContainerRef.current.clientWidth,
-        behavior: 'smooth',
-      });
-    }
-  };
+  useEffect(() => {
+    const container = imageContainerRef.current;
+    
+    const handleScroll = () => {
+      const scrollPosition = container.scrollLeft;
+      const imageWidth = container.clientWidth;
+      setCurrentImageIndex(Math.round(scrollPosition / imageWidth));
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <main>
@@ -36,16 +41,24 @@ const Home = () => {
 
       <section className="image-section">
         <div className="image-grid" ref={imageContainerRef}>
-          <img src={home1} alt="I1mage 1" className="scroll-image" />
-          <img src={home2} alt="Im1age 2" className="scroll-image" />
-          <img src={home3} alt="Imag1e 3" className="scroll-image" />
+          <img src={home1} alt="Product Showcase 1" className="scroll-image" />
+          <img src={home2} alt="Product Showcase 2" className="scroll-image" />
+          <img src={home3} alt="Product Showcase 3" className="scroll-image" />
         </div>
-        <div className="clickable-area left" onClick={handlePrevClick}></div>
-        <div className="clickable-area right" onClick={handleNextClick}></div>
+        <div className="dots-container">
+          {[0, 1, 2].map((index) => (
+            <button
+              key={index}
+              className={`dot ${currentImageIndex === index ? 'active' : ''}`}
+              onClick={() => handleDotClick(index)}
+              aria-label={`View image ${index + 1}`}
+            />
+          ))}
+        </div>
       </section>
 
       <section className="middleware-section">
-        <h2 className="animated-text">Upcoming!</h2>
+      <h2 className="animated-text">Upcoming!</h2>
         <h3 className="animated-text">Middleware Solution</h3>
         <div className="text">
           <div className="text-part">
@@ -68,7 +81,7 @@ const Home = () => {
       </section>
 
       <section className="trusted-section">
-        <h2 className="animated-text">Trusted and Mentored By</h2>
+      <h2 className="animated-text">Trusted and Mentored By</h2>
           <div className="company">
             <img src={ajit} alt="Ajit Gokhale" className="profile-image" />
               <div className="profile-info">
@@ -82,7 +95,8 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-        </section>
+      </section>
+      
       <Footer />
     </main>
   );
